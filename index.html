@@ -1,539 +1,202 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Code Counsel (SMC-Private) Limited | Legal, Strategy & Digital Solutions</title>
-    <!-- Google Fonts for Clean, Professional Typography -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --bg-color: #000000;
-            --surface-color: #0a0a0a;
-            --border-color: #222222;
-            --text-primary: #ffffff;
-            --text-secondary: #a1a1aa;
-            --accent-color: #ffffff;
-            --accent-hover: #e4e4e7;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-primary);
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-
-        /* Container */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-
-        /* Header / Navigation */
-        header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            background: rgba(0, 0, 0, 0.85);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid var(--border-color);
-            z-index: 1000;
-        }
-
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            height: 80px;
-        }
-
-        .logo-container {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            text-decoration: none;
-        }
-
-        .logo-container img {
-            height: 40px;
-            width: 40px;
-            border-radius: 8px;
-            object-fit: contain;
-        }
-
-        .logo-text {
-            font-weight: 700;
-            font-size: 1.1rem;
-            letter-spacing: 0.05em;
-            color: var(--text-primary);
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-            list-style: none;
-            align-items: center;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-            font-weight: 500;
-            transition: color 0.2s ease;
-        }
-
-        .nav-links a:hover {
-            color: var(--text-primary);
-        }
-
-        .cta-button-nav {
-            background-color: var(--text-primary);
-            color: var(--bg-color) !important;
-            padding: 0.6rem 1.2rem;
-            border-radius: 4px;
-            font-weight: 600 !important;
-            transition: opacity 0.2s ease;
-        }
-
-        .cta-button-nav:hover {
-            opacity: 0.9;
-        }
-
-        /* Hero Section */
-        hero {
-            padding: 160px 0 100px 0;
-            border-bottom: 1px solid var(--border-color);
-            text-align: center;
-        }
-
-        .hero-content {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .badge {
-            display: inline-block;
-            border: 1px solid var(--border-color);
-            padding: 0.4rem 1rem;
-            border-radius: 50px;
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            color: var(--text-secondary);
-            margin-bottom: 1.5rem;
-            background: var(--surface-color);
-        }
-
-        h1 {
-            font-size: 3.5rem;
-            font-weight: 700;
-            letter-spacing: -0.03em;
-            margin-bottom: 1.5rem;
-            line-height: 1.1;
-        }
-
-        .hero-subtitle {
-            font-size: 1.15rem;
-            color: var(--text-secondary);
-            margin-bottom: 2.5rem;
-            line-height: 1.7;
-        }
-
-        .hero-buttons {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 0.9rem 2rem;
-            border-radius: 4px;
-            font-weight: 600;
-            text-decoration: none;
-            transition: all 0.2s ease;
-            font-size: 0.95rem;
-        }
-
-        .btn-primary {
-            background-color: var(--text-primary);
-            color: var(--bg-color);
-        }
-
-        .btn-primary:hover {
-            background-color: var(--accent-hover);
-        }
-
-        .btn-secondary {
-            background-color: transparent;
-            color: var(--text-primary);
-            border: 1px solid var(--border-color);
-        }
-
-        .btn-secondary:hover {
-            background-color: var(--surface-color);
-            border-color: var(--text-secondary);
-        }
-
-        /* Services Section */
-        section {
-            padding: 100px 0;
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        .section-header {
-            text-align: center;
-            max-width: 600px;
-            margin: 0 auto 60px auto;
-        }
-
-        .section-header h2 {
-            font-size: 2.25rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-            letter-spacing: -0.02em;
-        }
-
-        .section-header p {
-            color: var(--text-secondary);
-        }
-
-        .grid-3 {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2rem;
-        }
-
-        .card {
-            background-color: var(--surface-color);
-            border: 1px solid var(--border-color);
-            padding: 2.5rem;
-            border-radius: 8px;
-            transition: border-color 0.2s ease;
-        }
-
-        .card:hover {
-            border-color: var(--text-secondary);
-        }
-
-        .card-number {
-            font-size: 0.85rem;
-            color: var(--text-secondary);
-            font-weight: 600;
-            letter-spacing: 0.1em;
-            margin-bottom: 1rem;
-            display: block;
-        }
-
-        .card h3 {
-            font-size: 1.25rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-        }
-
-        .card p {
-            color: var(--text-secondary);
-            font-size: 0.95rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .card-list {
-            list-style: none;
-            font-size: 0.9rem;
-            color: var(--text-secondary);
-        }
-
-        .card-list li {
-            padding: 0.3rem 0;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .card-list li::before {
-            content: "—";
-            color: var(--text-primary);
-        }
-
-        /* About & Compliance Section */
-        .compliance-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-        }
-
-        .compliance-text h2 {
-            font-size: 2.25rem;
-            font-weight: 600;
-            margin-bottom: 1.5rem;
-            letter-spacing: -0.02em;
-        }
-
-        .compliance-text p {
-            color: var(--text-secondary);
-            margin-bottom: 1.5rem;
-            font-size: 1rem;
-        }
-
-        .meta-box {
-            background: var(--surface-color);
-            border: 1px solid var(--border-color);
-            padding: 2rem;
-            border-radius: 8px;
-        }
-
-        .meta-item {
-            margin-bottom: 1.2rem;
-        }
-
-        .meta-item:last-child {
-            margin-bottom: 0;
-        }
-
-        .meta-label {
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            color: var(--text-secondary);
-            display: block;
-            margin-bottom: 0.3rem;
-        }
-
-        .meta-value {
-            font-weight: 500;
-            font-size: 0.95rem;
-        }
-
-        /* Contact Section */
-        .contact-wrapper {
-            max-width: 700px;
-            margin: 0 auto;
-            background: var(--surface-color);
-            border: 1px solid var(--border-color);
-            padding: 3rem;
-            border-radius: 8px;
-        }
-
-        .contact-info-list {
-            list-style: none;
-            margin-top: 2rem;
-        }
-
-        .contact-info-list li {
-            margin-bottom: 1rem;
-            color: var(--text-secondary);
-            font-size: 0.95rem;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .contact-info-list span {
-            color: var(--text-primary);
-            font-weight: 600;
-            font-size: 1rem;
-            margin-top: 0.2rem;
-        }
-
-        /* Footer */
-        footer {
-            padding: 60px 0;
-            border-top: 1px solid var(--border-color);
-            text-align: center;
-            color: var(--text-secondary);
-            font-size: 0.85rem;
-        }
-
-        .footer-content {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 1.5rem;
-        }
-
-        .footer-logo {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .footer-logo img {
-            height: 30px;
-            width: 30px;
-            object-fit: contain;
-        }
-
-        /* Responsive */
-        @media(max-width: 768px) {
-            h1 { font-size: 2.5rem; }
-            .nav-links { display: none; }
-            .compliance-grid { grid-template-columns: 1fr; gap: 2rem; }
-            .hero-buttons { flex-direction: column; }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Code Counsel (SMC-Private) Limited — Regulatory & Digital Advisory, Pakistan</title>
+<meta name="description" content="SECP-registered compliance consultancy helping startups and enterprises navigate SECP and FBR regulation, alongside corporate legal advisory and technical development.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-    <!-- Header Navigation -->
-    <header>
-        <div class="container">
-            <nav>
-                <a href="#" class="logo-container">
-                    <!-- Replace logo.png with your exact filename -->
-                    <img src="logo.png" alt="Code Counsel Logo">
-                    <span class="logo-text">CODE COUNSEL</span>
-                </a>
-                <ul class="nav-links">
-                    <li><a href="#services">Services</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#compliance">Compliance</a></li>
-                    <li><a href="#contact" class="cta-button-nav">Get in Touch</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+<header>
+  <div class="container">
+    <nav>
+      <a href="index.html" class="brand">
+        <span class="brand-mark">Code Counsel</span>
+        <span class="brand-sub">SMC-PRIVATE LTD</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="about.html">About &amp; Compliance</a></li>
+        <li><a href="contact.html" class="nav-cta">Get in touch</a></li>
+      </ul>
+      <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
+    </nav>
+  </div>
+</header>
 
-    <!-- Hero Section -->
-    <hero>
-        <div class="container">
-            <div class="hero-content">
-                <span class="badge">SMC-Private Limited • Corporate Law & Tech</span>
-                <h1>Precision Legal Advisory & Digital Strategy</h1>
-                <p class="hero-subtitle">Code Counsel delivers sophisticated corporate consultancy, high-end technical architecture, and specialized legal support for institutional bodies, enterprises, and innovators.</p>
-                <div class="hero-buttons">
-                    <a href="#services" class="btn btn-primary">Explore Our Scope</a>
-                    <a href="#contact" class="btn btn-secondary">Contact Practice</a>
-                </div>
-            </div>
-        </div>
-    </hero>
+<main>
 
-    <!-- Services Section -->
-    <section id="services">
-        <div class="container">
-            <div class="section-header">
-                <h2>Multidisciplinary Expertise</h2>
-                <p>Structured across core corporate authorization lines designed for maximum legal and technical utility[cite: 1, 9].</p>
-            </div>
-            <div class="grid-3">
-                <!-- Service 1 -->
-                <div class="card">
-                    <span class="card-number">CLASS 35</span>
-                    <h3>Strategic Consultancy</h3>
-                    <p>Comprehensive institutional advisory and project development scaling operations reliably.</p>
-                    <ul class="card-list">
-                        <li>Strategic Planning & Advisory</li>
-                        <li>Project Management & Monitoring</li>
-                        <li>Institutional Capacity Building</li>
-                    </ul>
-                </div>
-                <!-- Service 2 -->
-                <div class="card">
-                    <span class="card-number">CLASS 42</span>
-                    <h3>Technology & Digital</h3>
-                    <p>Robust enterprise tech development, cloud frameworks, and digital positioning systems.</p>
-                    <ul class="card-list">
-                        <li>Software & Web Architecture</li>
-                        <li>Cloud Solutions & Automation</li>
-                        <li>Digital Branding & SEO Strategy</li>
-                    </ul>
-                </div>
-                <!-- Service 3 -->
-                <div class="card">
-                    <span class="card-number">CLASS 45</span>
-                    <h3>Legal Advisory</h3>
-                    <p>Rigorous regulatory counsel, compliance planning, and specialized commercial insight.</p>
-                    <ul class="card-list">
-                        <li>Corporate & Business Legal Advisory</li>
-                        <li>Regulatory Compliance Governance</li>
-                        <li>Ancillary Corporate Support</li>
-                    </ul>
-                </div>
-            </div>
+  <section class="hero">
+    <div class="container hero-grid">
+      <div>
+        <p class="hero-kicker">CUIN 0339455 · Companies Act, 2017 · Dera Ismail Khan, KP</p>
+        <h1>Regulatory clarity for companies that can't afford to guess</h1>
+        <p class="lede">Code Counsel is a SECP-registered consultancy built to take the guesswork out of compliance — for founders navigating SECP and FBR requirements, and for organisations that need legal advisory work paired with real technical execution.</p>
+        <div class="hero-actions">
+          <a href="services.html" class="btn btn-brass">See our services</a>
+          <a href="contact.html" class="btn btn-outline-dark">Book a consultation</a>
         </div>
-    </section>
+      </div>
+      <div class="seal-card">
+        <p class="seal-title">CERTIFICATE OF INCORPORATION EXTRACT</p>
+        <div class="seal-row"><span class="k">Entity name</span><span class="v">Code Counsel (SMC-Private) Ltd</span></div>
+        <div class="seal-row"><span class="k">Registration / CUIN</span><span class="v">0339455</span></div>
+        <div class="seal-row"><span class="k">Governing statute</span><span class="v">Companies Act, 2017</span></div>
+        <div class="seal-row"><span class="k">Registered office</span><span class="v">Grid Station Road, D.I. Khan</span></div>
+        <div class="seal-row"><span class="k">Status</span><span class="v">Active</span></div>
+      </div>
+    </div>
+  </section>
 
-    <!-- Compliance / About Section -->
-    <section id="compliance">
-        <div class="container">
-            <div class="compliance-grid">
-                <div class="compliance-text">
-                    <h2>Institutional Integrity & Governance</h2>
-                    <p>Code Counsel (SMC-Private) Limited operates under the stringent governance framework of the Companies Act, 2017[cite: 1, 3]. Our commitment centers on absolute legal transparency, robust technical execution, and professional accountability.</p>
-                    <p>Serving corporate institutions, government bodies, and international donors, we maintain compliance excellence across all operating tiers.</p>
-                </div>
-                <div class="meta-box">
-                    <div class="meta-item">
-                        <span class="meta-label">Corporate Entity</span>
-                        <span class="meta-value">Code Counsel</span>
-                    </div>
-                    <div class="meta-item">
-                        <span class="meta-label">Registration / CUIN</span>
-                        <span class="meta-value">0339455</span>
-                    </div>
-                    <div class="meta-item">
-                        <span class="meta-label">Governing Statute</span>
-                        <span class="meta-value">Companies Act, 2017 (XIX of 2017)</span>
-                    </div>
-                    <div class="meta-item">
-                        <span class="meta-label">Registered Office</span>
-                        <span class="meta-value">Grid Station Road, Dera Ismail Khan, KP, Pakistan</span>
-                    </div>
-                </div>
-            </div>
+  <section class="section-border-top">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">What we do</p>
+          <h2 class="section-title">Three practice lines, one accountable team</h2>
+          <p class="section-intro">Each line is registered under its own classification with SECP — the work is scoped and delivered accordingly, not bundled into a vague "consulting" package.</p>
         </div>
-    </section>
+        <a href="services.html" class="btn btn-outline-light">Full service list</a>
+      </div>
 
-    <!-- Contact Section -->
-    <section id="contact">
-        <div class="container">
-            <div class="section-header">
-                <h2>Direct Consultation</h2>
-                <p>Connect with our principal office for advisory scheduling and partnership inquiries.</p>
-            </div>
-            <div class="contact-wrapper">
-                <ul class="contact-info-list">
-                    <li>
-                        Official Correspondence Email
-                        <span>code.counsel.services@gmail.com</span>
-                    </li>
-                    <li>
-                        Direct Line / WhatsApp
-                        <span>+92 307 9920337</span>
-                        <span>+92 313 9776376</span>
-                    </li>
-                    <li>
-                        Registered Address Location
-                        <span>Grid Station Road, Dera Ismail Khan, Khyber Pakhtunkhwa, Pakistan</span>
-                    </li>
-                </ul>
-            </div>
+      <div class="practice-grid">
+        <div class="practice-card">
+          <span class="practice-class">Class 35</span>
+          <h3>Strategic consultancy</h3>
+          <p>Institutional advisory and project delivery for organisations scaling operations across regulatory and donor environments.</p>
+          <ul>
+            <li>Strategic planning &amp; advisory</li>
+            <li>Project management &amp; monitoring</li>
+            <li>Institutional capacity building</li>
+          </ul>
         </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-logo">
-                    <img src="logo.png" alt="Code Counsel Logo">
-                    <span>CODE COUNSEL</span>
-                </div>
-                <p>&copy; 2026 Code Counsel. All rights reserved. Incorporated in Pakistan.</p>
-            </div>
+        <div class="practice-card">
+          <span class="practice-class">Class 42</span>
+          <h3>Technology &amp; digital</h3>
+          <p>Web architecture, cloud infrastructure, and digital positioning delivered by an in-house technical team.</p>
+          <ul>
+            <li>Software &amp; web architecture</li>
+            <li>Cloud solutions &amp; automation</li>
+            <li>Digital branding &amp; SEO strategy</li>
+          </ul>
         </div>
-    </footer>
+        <div class="practice-card">
+          <span class="practice-class">Class 45</span>
+          <h3>Legal advisory</h3>
+          <p>Regulatory counsel and compliance planning for companies operating under Pakistani corporate law.</p>
+          <ul>
+            <li>Corporate &amp; business legal advisory</li>
+            <li>Regulatory compliance governance</li>
+            <li>Ancillary corporate support</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
 
+  <section class="section-dark section-border-top">
+    <div class="container">
+      <p class="eyebrow">How engagements run</p>
+      <h2 class="section-title">From first filing to ongoing compliance</h2>
+      <div class="process-list">
+        <div class="process-item">
+          <span class="step-no">01</span>
+          <div>
+            <h4>Scoping call</h4>
+            <p>We map your current regulatory position — SECP status, FBR registration, and any outstanding filings — before quoting anything.</p>
+          </div>
+        </div>
+        <div class="process-item">
+          <span class="step-no">02</span>
+          <div>
+            <h4>Engagement letter</h4>
+            <p>Scope, deliverables, and fees are set out in writing under the relevant practice classification, so there's no ambiguity about what's included.</p>
+          </div>
+        </div>
+        <div class="process-item">
+          <span class="step-no">03</span>
+          <div>
+            <h4>Delivery &amp; filing</h4>
+            <p>Documents are prepared, reviewed, and filed with SECP, FBR, or the relevant authority, with copies retained for your records.</p>
+          </div>
+        </div>
+        <div class="process-item">
+          <span class="step-no">04</span>
+          <div>
+            <h4>Ongoing compliance</h4>
+            <p>Where required, we monitor renewal and reporting deadlines so recurring obligations don't lapse.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-border-top">
+    <div class="container">
+      <div class="split">
+        <div>
+          <p class="eyebrow">Institutional integrity</p>
+          <h2 class="section-title">Governed by the Companies Act, 2017</h2>
+          <p>Code Counsel operates under the same statutory framework we help our clients comply with. That isn't a marketing line — it's the standard our own filings, records, and engagement letters are held to.</p>
+          <p>We serve corporate institutions, government bodies, and international donors, and we size our advice to what a client can realistically maintain, not to what looks impressive in a proposal.</p>
+          <a href="about.html" class="btn btn-outline-light">Read our compliance profile</a>
+        </div>
+        <div class="filing-box">
+          <p class="eyebrow">Registered particulars</p>
+          <div class="filing-row"><span class="k">Corporate entity</span><span class="v">Code Counsel</span></div>
+          <div class="filing-row"><span class="k">Registration / CUIN</span><span class="v">0339455</span></div>
+          <div class="filing-row"><span class="k">Governing statute</span><span class="v">Companies Act, 2017 (XIX of 2017)</span></div>
+          <div class="filing-row"><span class="k">Registered office</span><span class="v">Grid Station Road, D.I. Khan, KP</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-band">
+    <div class="container">
+      <h3>Ready to find out where your compliance actually stands?</h3>
+      <a href="contact.html" class="btn" style="background:var(--navy-deep); color:var(--parchment);">Book a consultation</a>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <span class="brand-mark" style="font-size:1.15rem;">Code Counsel</span>
+        <p style="margin-top:0.9rem; max-width: 34ch; font-size:0.9rem;">A SECP-registered consultancy for regulatory, legal, and technical work in Pakistan.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Site</h5>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="about.html">About &amp; Compliance</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Direct</h5>
+        <ul>
+          <li><a href="mailto:code.counsel.services@gmail.com">code.counsel.services@gmail.com</a></li>
+          <li><a href="tel:+923079920337">+92 307 9920337</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-legal">
+      <span>© 2026 Code Counsel (SMC-Private) Limited. Incorporated in Pakistan.</span>
+      <span>CUIN 0339455</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
 </body>
 </html>

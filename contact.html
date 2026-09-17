@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact — Code Counsel (SMC-Private) Limited</title>
+<meta name="description" content="Get in touch with Code Counsel for compliance, legal, or technical advisory work.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <nav>
+      <a href="index.html" class="brand">
+        <span class="brand-mark">Code Counsel</span>
+        <span class="brand-sub">SMC-PRIVATE LTD</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="about.html">About &amp; Compliance</a></li>
+        <li><a href="contact.html" class="nav-cta">Get in touch</a></li>
+      </ul>
+      <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <section class="hero" style="padding-bottom:3.5rem;">
+    <div class="container">
+      <p class="hero-kicker">Direct consultation</p>
+      <h1 style="max-width:18ch;">Tell us what you're trying to get done</h1>
+      <p class="lede">Send a short description of your situation and which classification it's likely to fall under, and we'll come back with next steps — not a generic sales call.</p>
+    </div>
+  </section>
+
+  <section class="section-border-top">
+    <div class="container contact-grid">
+
+      <div class="contact-card">
+        <p class="eyebrow">Send a message</p>
+        <form id="contact-form" action="https://formspree.io/f/your-form-id" method="POST">
+          <div class="form-field">
+            <label for="name">Full name</label>
+            <input type="text" id="name" name="name" required>
+          </div>
+          <div class="form-field">
+            <label for="email">Email address</label>
+            <input type="email" id="email" name="email" required>
+          </div>
+          <div class="form-field">
+            <label for="organisation">Organisation (optional)</label>
+            <input type="text" id="organisation" name="organisation">
+          </div>
+          <div class="form-field">
+            <label for="topic">What's this about?</label>
+            <select id="topic" name="topic">
+              <option>Strategic consultancy (Class 35)</option>
+              <option>Technology &amp; digital (Class 42)</option>
+              <option>Legal advisory (Class 45)</option>
+              <option>Something else / not sure</option>
+            </select>
+          </div>
+          <div class="form-field">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" required></textarea>
+          </div>
+          <button type="submit" class="btn btn-brass" style="width:100%; justify-content:center;">Send message</button>
+          <p id="form-status" class="form-status" role="status"></p>
+          <p class="form-note">Submissions are delivered by Formspree; Code Counsel does not store form data on this site. See the README for connecting your own Formspree endpoint.</p>
+        </form>
+      </div>
+
+      <div>
+        <p class="eyebrow">Direct lines</p>
+        <div class="contact-direct">
+          <div class="entry">
+            <p class="k">OFFICIAL CORRESPONDENCE EMAIL</p>
+            <p class="v"><a href="mailto:code.counsel.services@gmail.com">code.counsel.services@gmail.com</a></p>
+          </div>
+          <div class="entry">
+            <p class="k">DIRECT LINE / WHATSAPP</p>
+            <p class="v"><a href="tel:+923079920337">+92 307 9920337</a></p>
+            <p class="v"><a href="tel:+923139776376">+92 313 9776376</a></p>
+          </div>
+          <div class="entry">
+            <p class="k">REGISTERED ADDRESS</p>
+            <p class="v" style="font-weight:400;">Grid Station Road, Dera Ismail Khan, Khyber Pakhtunkhwa, Pakistan</p>
+          </div>
+        </div>
+
+        <div class="filing-box" style="margin-top:2rem;">
+          <p class="eyebrow">Before you write in</p>
+          <p style="color:#aeb6c1; font-size:0.92rem;">Include the name of the company or project involved and, if you already have one, your SECP registration or CUIN — it lets us give a useful answer on the first reply instead of a round of intake questions.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <span class="brand-mark" style="font-size:1.15rem;">Code Counsel</span>
+        <p style="margin-top:0.9rem; max-width: 34ch; font-size:0.9rem;">A SECP-registered consultancy for regulatory, legal, and technical work in Pakistan.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Site</h5>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="about.html">About &amp; Compliance</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Direct</h5>
+        <ul>
+          <li><a href="mailto:code.counsel.services@gmail.com">code.counsel.services@gmail.com</a></li>
+          <li><a href="tel:+923079920337">+92 307 9920337</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-legal">
+      <span>© 2026 Code Counsel (SMC-Private) Limited. Incorporated in Pakistan.</span>
+      <span>CUIN 0339455</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
